@@ -4,7 +4,7 @@ import axios from "axios";
 const api = axios.create({
   // Set VITE_API_URL in production (for example, https://api.example.com/api).
   // Keeping the local default makes the project run without extra setup.
-  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api",
+  baseURL: import.meta.env.VITE_API_URL || "https://backend-0c33.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
