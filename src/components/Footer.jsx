@@ -66,7 +66,7 @@ export default function Footer() {
                  <ExternalLink size={19} />
               </a>
               <a
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/profile.php?id=61595351315742"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
