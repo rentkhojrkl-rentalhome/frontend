@@ -49,7 +49,7 @@ export default function Footer() {
               Have a question? Contact the RentKhoj team.
             </p>
             <a
-              href="mailto:support@rentkhoj.in"
+              href="mailto:rentkhojrkl@gmail.com"
               className="flex items-center gap-2 text-sm hover:text-emerald-400"
             >
               <Mail size={17} />
