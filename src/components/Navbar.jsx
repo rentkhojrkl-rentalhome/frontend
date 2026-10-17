@@ -1,16 +1,10 @@
 
 import { Link, useNavigate } from "react-router-dom";
-import { Home, Heart, User, LogOut } from "lucide-react";
+import { Home, User, CircleUserRound } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
-  const { user, loading, logout } = useAuth();
-  const navigate = useNavigate();
-
-  function handleLogout() {
-    logout();
-    navigate("/");
-  }
+  const { user, loading } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur">
@@ -22,7 +16,7 @@ function Navbar() {
 
           <div>
             <div className="text-xl font-bold tracking-tight text-gray-900">
-              Rent<span className="text-emerald-600">Khoj</span>
+              Rent<span className="text-emerald-700">Khoj</span>
             </div>
             <div className="hidden text-[10px] font-medium text-gray-400 sm:block">
               Rourkela's Rental Marketplace
@@ -31,15 +25,15 @@ function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">
-          <Link to="/search" className="text-sm font-medium text-gray-600 hover:text-emerald-600">
+          <Link to="/search" className="text-sm font-medium text-gray-600 hover:text-emerald-700">
             Find a Place
           </Link>
 
-          <Link to="/post-property" className="text-sm font-medium text-gray-600 hover:text-emerald-600">
+          <Link to="/post-property" className="text-sm font-medium text-gray-600 hover:text-emerald-700">
             List Property
           </Link>
 
-          <Link to="/requirements" className="text-sm font-medium text-gray-600 hover:text-emerald-600">
+          <Link to="/requirements" className="text-sm font-medium text-gray-600 hover:text-emerald-700">
             I Need a Room
           </Link>
           {user?.role === "admin" && (
@@ -52,7 +46,7 @@ function Navbar() {
                   )}
         </nav>
 
-       <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           {loading ? (
             <span className="text-sm text-gray-400">Loading...</span>
           ) : user ? (
@@ -66,12 +60,13 @@ function Navbar() {
                 <span className="hidden sm:inline">Profile</span>
               </Link>
               
+
             </>
           ) : (
             <>
               <Link
                 to="/login"
-                className="flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600"
+                className="flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-blue-200 hover:bg-blue-50 hover:text-emerald-700"
               >
                 <User size={17} />
                 Login
@@ -79,7 +74,7 @@ function Navbar() {
 
               <Link
                 to="/register"
-                className="hidden rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 sm:inline-flex"
+                className="hidden rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 sm:inline-flex"
               >
                 Sign up
               </Link>
