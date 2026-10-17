@@ -12,6 +12,7 @@ import PostProperty from "./pages/PostProperty";
 import AdminDashboard from "./pages/AdminDashboard";
 import Footer from "./components/Footer";
 import Requirements from "./pages/Requirements";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
          <Route path="/post-property" element={<PostProperty />} />
          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/requirements" element={<Requirements />} />
+          <Route path="/profile" element={<Profile />} />
 
         </Routes>
         <Footer/ >
