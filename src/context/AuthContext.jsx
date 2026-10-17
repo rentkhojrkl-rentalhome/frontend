@@ -54,6 +54,10 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
+  const updateUser = useCallback((updatedUser) => {
+    setUser((current) => ({ ...current, ...updatedUser }));
+  }, []);
+
   const login = async (formData) => {
     const result = await loginUser(formData);
 
@@ -74,7 +78,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, login, register, logout }}
+      value={{ user, loading, login, register, logout, updateUser }}
     >
       {children}
     </AuthContext.Provider>
