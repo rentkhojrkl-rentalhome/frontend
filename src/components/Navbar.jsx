@@ -52,35 +52,20 @@ function Navbar() {
                   )}
         </nav>
 
-        <div className="flex items-center gap-2">
-          {!loading && user && (
-            <Link
-              to="/search"
-              aria-label="Browse properties"
-              className="hidden rounded-lg p-2 text-gray-600 hover:bg-gray-100 sm:block"
-            >
-              <Heart size={20} />
-            </Link>
-          )}
-
+       <div className="flex items-center gap-2">
           {loading ? (
             <span className="text-sm text-gray-400">Loading...</span>
           ) : user ? (
             <>
-              <div className="hidden text-right sm:block">
-                <p className="max-w-32 truncate text-sm font-semibold text-gray-800">
-                  {user.name}
-                </p>
-                <p className="text-xs capitalize text-gray-500">{user.role}</p>
-              </div>
-
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-2 rounded-xl border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+              <Link
+                to="/profile"
+                className="inline-flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100"
+                aria-label="My profile"
               >
-                <LogOut size={16} />
-                <span className="hidden sm:inline">Logout</span>
-              </button>
+                <CircleUserRound size={18} />
+                <span className="hidden sm:inline">Profile</span>
+              </Link>
+              
             </>
           ) : (
             <>
