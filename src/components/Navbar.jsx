@@ -22,7 +22,7 @@ function Navbar() {
 
           <div>
             <div className="text-xl font-bold tracking-tight text-gray-900">
-              Rent<span className="text-blue-600">Khoj</span>
+              Rent<span className="text-emerald-600">Khoj</span>
             </div>
             <div className="hidden text-[10px] font-medium text-gray-400 sm:block">
               Rourkela's Rental Marketplace
@@ -31,15 +31,15 @@ function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">
-          <Link to="/search" className="text-sm font-medium text-gray-600 hover:text-blue-600">
+          <Link to="/search" className="text-sm font-medium text-gray-600 hover:text-emerald-600">
             Find a Place
           </Link>
 
-          <Link to="/post-property" className="text-sm font-medium text-gray-600 hover:text-blue-600">
+          <Link to="/post-property" className="text-sm font-medium text-gray-600 hover:text-emerald-600">
             List Property
           </Link>
 
-          <Link to="/requirements" className="text-sm font-medium text-gray-600 hover:text-blue-600">
+          <Link to="/requirements" className="text-sm font-medium text-gray-600 hover:text-emerald-600">
             I Need a Room
           </Link>
           {user?.role === "admin" && (
