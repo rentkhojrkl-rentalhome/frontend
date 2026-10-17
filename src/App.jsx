@@ -11,6 +11,7 @@ import { AuthProvider } from "./context/AuthContext";
 import PostProperty from "./pages/PostProperty";
 import AdminDashboard from "./pages/AdminDashboard";
 import Footer from "./components/Footer";
+import Requirements from "./pages/Requirements";
 
 function App() {
   return (
@@ -27,15 +28,8 @@ function App() {
 
          <Route path="/post-property" element={<PostProperty />} />
          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/requirements" element={<Requirements />} />
 
-          <Route
-            path="/requirements"
-            element={
-              <div className="p-10 text-center">
-                Room requirements coming next.
-              </div>
-            }
-          />
         </Routes>
         <Footer/ >
       </AuthProvider>
