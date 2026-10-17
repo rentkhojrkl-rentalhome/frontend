@@ -110,8 +110,6 @@ const payload = {
   notes: form.description.trim() || null,
 };
 
-await api.post("/requirements", payload);
-
       await api.post("/requirements", payload);
       setForm(initialForm);
       setSuccess("Your room requirement was posted successfully.");
