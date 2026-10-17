@@ -1,6 +1,23 @@
-
 import { Link } from "react-router-dom";
-import { Home, MapPin, Mail,  ExternalLink  } from "lucide-react";
+import { Home, MapPin, Mail } from "lucide-react";
+
+function InstagramIcon({ size = 19 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
+
+function FacebookIcon({ size = 19 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4Z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
@@ -9,23 +26,12 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <span className="rounded-xl bg-emerald-500 p-3 text-white">
-                <Home size={22} />
-              </span>
-              <span className="text-2xl font-bold text-white">
-                Rent<span className="text-emerald-400">Khoj</span>
-              </span>
+              <span className="rounded-xl bg-emerald-500 p-3 text-white"><Home size={22} /></span>
+              <span className="text-2xl font-bold text-white">Rent<span className="text-emerald-400">Khoj</span></span>
             </Link>
-            <p className="mt-4 text-sm leading-6 text-slate-400">
-              Find your next home with ease. Discover rental rooms, flats and
-              houses across Rourkela, Odisha.
-            </p>
-            <p className="mt-4 flex items-center gap-2 text-sm">
-              <MapPin size={17} className="text-emerald-400" />
-              Rourkela, Odisha, India
-            </p>
+            <p className="mt-4 text-sm leading-6 text-slate-400">Find your next home with ease. Discover rental rooms, flats and houses across Rourkela, Odisha.</p>
+            <p className="mt-4 flex items-center gap-2 text-sm"><MapPin size={17} className="text-emerald-400" />Rourkela, Odisha, India</p>
           </div>
-
           <div>
             <h3 className="mb-4 font-bold text-white">Explore</h3>
             <ul className="space-y-3 text-sm">
@@ -34,7 +40,6 @@ export default function Footer() {
               <li><Link to="/post-property" className="hover:text-emerald-400">List Your Property</Link></li>
             </ul>
           </div>
-
           <div>
             <h3 className="mb-4 font-bold text-white">Your Account</h3>
             <ul className="space-y-3 text-sm">
@@ -42,45 +47,17 @@ export default function Footer() {
               <li><Link to="/register" className="hover:text-emerald-400">Create Account</Link></li>
             </ul>
           </div>
-
           <div>
             <h3 className="mb-4 font-bold text-white">Get in Touch</h3>
-            <p className="mb-4 text-sm leading-6 text-slate-400">
-              Have a question? Contact the RentKhoj team.
-            </p>
-            <a
-              href="mailto:rentkhojrkl@gmail.com"
-              className="flex items-center gap-2 text-sm hover:text-emerald-400"
-            >
-              <Mail size={17} />
-              Email Support
-            </a>
+            <p className="mb-4 text-sm leading-6 text-slate-400">Have a question? Contact the RentKhoj team.</p>
+            <a href="mailto:rentkhojrkl@gmail.com" className="flex items-center gap-2 text-sm hover:text-emerald-400"><Mail size={17} />Email Support</a>
             <div className="mt-5 flex gap-3">
-              <a
-                href="https://www.instagram.com/rentkhojrkl?vrfl=MTVkNWJ1MXk3a3Zjaw%3D%3D"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="rounded-lg border border-slate-700 p-2 hover:text-emerald-400"
-              >
-                 <ExternalLink size={19} />
-              </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61595351315742"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="rounded-lg border border-slate-700 p-2 hover:text-emerald-400"
-              >
-                <ExternalLink size={19} />
-              </a>
+              <a href="https://www.instagram.com/rentkhojrkl?vrfl=MTVkNWJ1MXk3a3Zjaw%3D%3D" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram" className="rounded-lg border border-slate-700 p-2 hover:border-emerald-400 hover:text-emerald-400"><InstagramIcon /></a>
+              <a href="https://www.facebook.com/profile.php?id=61595351315742" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook" className="rounded-lg border border-slate-700 p-2 hover:border-emerald-400 hover:text-emerald-400"><FacebookIcon /></a>
             </div>
           </div>
         </div>
-
-        <div className="mt-10 border-t border-slate-800 pt-6 text-center text-sm text-slate-400">
-          © {new Date().getFullYear()} ShunyaLabs Pvt Ltd. All rights reserved.
-        </div>
+        <div className="mt-10 border-t border-slate-800 pt-6 text-center text-sm text-slate-400">© {new Date().getFullYear()} ShunyaLabs. All rights reserved.</div>
       </div>
     </footer>
   );
