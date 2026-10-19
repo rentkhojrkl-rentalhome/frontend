@@ -156,7 +156,7 @@ function Home() {
   }
 
   return (
-    <main className="bg-[#f6f8f3] text-slate-950">
+    <main className="rk-home bg-[#f6f8f3] text-slate-950">
       {/* Scenic Rourkela hero. The image source is credited below the hero. */}
       <section
         className="relative isolate min-h-[900px] overflow-hidden bg-[#163c31] bg-cover bg-center pb-8 pt-28 sm:pt-32 lg:min-h-[940px] lg:pt-36"
