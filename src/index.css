@@ -1,24 +1,83 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
+:root {
+  color-scheme: light;
+  --rk-forest: #063f2d;
+  --rk-green: #08764d;
+  --rk-lime: #b6e879;
+  --rk-cream: #f6f8f3;
+  --rk-ink: #10231b;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: #ffffff;
-  color: #111827;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--rk-cream);
+  color: var(--rk-ink);
+  -webkit-font-smoothing: antialiased;
+}
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button, [role="button"] { touch-action: manipulation; }
+img { max-width: 100%; }
+
+/* Shared visual language for existing app pages; no data logic or API behaviour is changed. */
+main:not(.rk-home) {
+  color: #10231b;
+  background: #f6f8f3;
+}
+main:not(.rk-home) h1,
+main:not(.rk-home) h2,
+main:not(.rk-home) h3 { letter-spacing: -0.025em; }
+main:not(.rk-home) input:not([type="radio"]):not([type="checkbox"]),
+main:not(.rk-home) select,
+main:not(.rk-home) textarea {
+  border-radius: 14px;
+  border-color: #dce5dc;
+  background-color: #fbfcf8;
+  color: #10231b;
+  min-height: 44px;
+}
+main:not(.rk-home) input:focus,
+main:not(.rk-home) select:focus,
+main:not(.rk-home) textarea:focus {
+  border-color: #08764d;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgb(8 118 77 / 12%);
+}
+main:not(.rk-home) button:not([aria-label="Open navigation menu"]):not([aria-label="Close navigation menu"]) {
+  border-radius: 14px;
+}
+main:not(.rk-home) a { text-underline-offset: 3px; }
+main:not(.rk-home) article,
+main:not(.rk-home) aside > div,
+main:not(.rk-home) form,
+main:not(.rk-home) section.rounded-2xl,
+main:not(.rk-home) section.rounded-3xl {
+  border-color: #e1e9df;
+}
+main:not(.rk-home) .text-blue-600,
+main:not(.rk-home) .text-blue-700,
+main:not(.rk-home) .text-blue-800 { color: #08764d !important; }
+main:not(.rk-home) .bg-blue-600 { background-color: #063f2d !important; }
+main:not(.rk-home) .bg-blue-700 { background-color: #075c40 !important; }
+main:not(.rk-home) .hover\:bg-blue-700:hover { background-color: #075c40 !important; }
+main:not(.rk-home) .border-blue-500,
+main:not(.rk-home) .focus\:border-blue-500:focus { border-color: #08764d !important; }
+main:not(.rk-home) .focus\:ring-blue-100:focus { --tw-ring-color: rgb(8 118 77 / 12%) !important; }
+
+/* Make form pages and listing cards comfortable on small screens. */
+@media (max-width: 639px) {
+  main:not(.rk-home) { overflow-wrap: anywhere; }
+  main:not(.rk-home) .text-4xl { font-size: 2rem; line-height: 1.12; }
+  main:not(.rk-home) .text-3xl { font-size: 1.75rem; line-height: 1.18; }
+  main:not(.rk-home) .p-8 { padding: 1.25rem; }
+  main:not(.rk-home) .p-7 { padding: 1.125rem; }
+  main:not(.rk-home) .px-6 { padding-left: 1rem; padding-right: 1rem; }
 }
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
