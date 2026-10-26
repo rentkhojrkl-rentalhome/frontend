@@ -67,14 +67,11 @@ export function AuthProvider({ children }) {
     return result.user;
   };
 
-  const register = async (formData) => {
-    const result = await registerUser(formData);
+  
+const register = async (formData) => {
+  return await registerUser(formData);
+};
 
-    localStorage.setItem("rentkhoj_token", result.access_token);
-    setUser(result.user);
-
-    return result.user;
-  };
 
   return (
     <AuthContext.Provider
