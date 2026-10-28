@@ -12,11 +12,15 @@ function Login() {
     email: "",
     password: "",
   });
+
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   function updateField(event) {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
   }
 
   async function handleSubmit(event) {
@@ -33,7 +37,8 @@ function Login() {
       navigate(user.role === "owner" ? "/post-property" : "/search");
     } catch (err) {
       setError(
-        err.response?.data?.detail || "Unable to log in. Please try again."
+        err.response?.data?.detail ||
+          "Unable to log in. Please try again."
       );
     } finally {
       setSubmitting(false);
@@ -43,10 +48,12 @@ function Login() {
   return (
     <main className="flex min-h-[85vh] items-center justify-center bg-gray-50 px-4 py-12">
       <div className="w-full max-w-md rounded-2xl border border-gray-100 bg-white p-7 shadow-lg sm:p-9">
+        {/* RentKhoj branding */}
         <Link to="/" className="flex items-center justify-center gap-2">
           <span className="rounded-xl bg-blue-600 p-2 text-white">
             <Home size={23} />
           </span>
+
           <span className="text-2xl font-extrabold">
             Rent<span className="text-blue-600">Khoj</span>
           </span>
@@ -55,15 +62,21 @@ function Login() {
         <h1 className="mt-7 text-center text-2xl font-bold text-gray-900">
           Welcome back!
         </h1>
+
         <p className="mt-2 text-center text-sm text-gray-500">
           Log in to find your place in Rourkela.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-7 space-y-5">
+          {/* Email */}
           <div>
-            <label htmlFor="email" className="mb-2 block text-sm font-semibold">
+            <label
+              htmlFor="email"
+              className="mb-2 block text-sm font-semibold text-gray-700"
+            >
               Email address
             </label>
+
             <input
               id="email"
               name="email"
@@ -77,10 +90,15 @@ function Login() {
             />
           </div>
 
+          {/* Password */}
           <div>
-            <label htmlFor="password" className="mb-2 block text-sm font-semibold">
+            <label
+              htmlFor="password"
+              className="mb-2 block text-sm font-semibold text-gray-700"
+            >
               Password
             </label>
+
             <input
               id="password"
               name="password"
@@ -92,29 +110,55 @@ function Login() {
               placeholder="Enter your password"
               className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
             />
+
+            {/* Forgot password link */}
+            <div className="mt-3 text-right">
+              <Link
+                to="/forgot-password"
+                className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline"
+              >
+                Forgot password?
+              </Link>
+            </div>
           </div>
 
+          {/* Login error */}
           {error && (
-            <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700">
+            <p
+              role="alert"
+              className="rounded-lg bg-red-50 p-3 text-sm text-red-700"
+            >
               {error}
             </p>
           )}
 
+          {/* Submit */}
           <button
             type="submit"
             disabled={submitting}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {submitting && <LoaderCircle size={18} className="animate-spin" />}
+            {submitting && (
+              <LoaderCircle size={18} className="animate-spin" />
+            )}
+
             {submitting ? "Logging in..." : "Log in"}
           </button>
         </form>
 
+        {/* Registration link */}
         <p className="mt-6 text-center text-sm text-gray-600">
           Don't have an account?{" "}
-          <Link to="/register" className="font-semibold text-blue-600 hover:underline">
+          <Link
+            to="/register"
+            className="font-semibold text-blue-600 hover:underline"
+          >
             Create one
           </Link>
+        </p>
+
+        <p className="mt-5 text-center text-xs text-gray-400">
+          Find your next home with RentKhojRKL.
         </p>
       </div>
     </main>
@@ -122,3 +166,4 @@ function Login() {
 }
 
 export default Login;
+
