@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Home, Users, Search, ArrowRight, HeartHandshake, Building2 } from "lucide-react";
+import SEO from "../components/SEO";  
 
 const principles = [
   { icon: <MapPin size={23}/>, title: "Made for Rourkela", text: "A local-first rental experience designed around the areas and needs of our city." },
@@ -9,6 +10,11 @@ const principles = [
 
 export default function About() {
   return <main className="rk-page min-h-screen">
+    <SEO
+  title="About RentKhojRKL – Rourkela Rental Marketplace"
+  description="Learn about RentKhojRKL, a local rental marketplace helping people find rooms, PGs, flats and houses in Rourkela, Odisha."
+  path="/about"
+/>
     <section className="relative overflow-hidden bg-gradient-to-br from-[#063f2d] via-[#08764d] to-[#b6e879] px-4 pb-16 pt-12 text-white sm:px-6 sm:pb-20 sm:pt-16">
       <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-white/10 blur-3xl"/>
       <div className="relative mx-auto max-w-6xl">
