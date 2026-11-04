@@ -9,6 +9,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { api } from "../services/api";
+import SEO from "../components/SEO";
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -203,6 +204,11 @@ function Search() {
 
   return (
     <main className="min-h-screen bg-gray-50 px-4 py-10 sm:px-6 lg:px-8">
+      <SEO
+  title="Find Rooms, PGs, Flats & Houses for Rent in Rourkela"
+  description="Search rental properties in Rourkela, Odisha. Explore available rooms, PGs, flats and houses by location, property type and monthly rent."
+  path="/search"
+/>
       <div className="mx-auto max-w-7xl">
         <div className="mb-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
