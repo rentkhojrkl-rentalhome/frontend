@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, MessageCircle, ArrowUpRight, Clock3 } from "lucide-react";
+import SEO from "../components/SEO";
 
 export default function Contact() {
   return <main className="rk-page min-h-screen">
+    <SEO
+  title="Contact RentKhojRKL – Rental Help in Rourkela"
+  description="Contact RentKhojRKL for help with finding rental properties, listing your room, PG, flat or house in Rourkela, Odisha."
+  path="/contact"
+/>
     <section className="bg-gradient-to-br from-[#063f2d] via-[#08764d] to-[#b6e879] px-4 py-12 text-white sm:px-6 sm:py-16">
       <div className="mx-auto max-w-6xl"><span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-semibold"><MessageCircle size={16}/> We’re here to help</span><h1 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">Contact <span className="text-lime-200">RentKhoj.</span></h1><p className="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">Have a question about a listing or want to know more about RentKhoj RKL? Reach out through the contact options below.</p></div>
     </section>
