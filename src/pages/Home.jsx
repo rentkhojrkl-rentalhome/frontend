@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { api } from "../services/api";
+import SEO from "../components/SEO";
 
 const popularAreas = [
   "Sector 1",
@@ -157,6 +158,11 @@ function Home() {
 
   return (
     <main className="rk-home bg-[#f6f8f3] text-slate-950">
+       <SEO
+      title="Rooms, PGs, Flats & Houses for Rent in Rourkela"
+      description="Find affordable rooms, PGs, flats and houses for rent in Rourkela, Odisha. Explore rental properties or list your property with RentKhojRKL."
+      path="/"
+    />
       {/* Scenic Rourkela hero. The image source is credited below the hero. */}
       <section
         className="relative isolate min-h-[900px] overflow-hidden bg-[#163c31] bg-cover bg-center pb-8 pt-28 sm:pt-32 lg:min-h-[940px] lg:pt-36"
