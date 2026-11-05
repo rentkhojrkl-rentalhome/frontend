@@ -122,19 +122,23 @@ function PropertyDetails() {
   const furnishing = property.furnishing || "Not specified";
   const bedrooms = property.bedrooms ?? property.bhk;
   const bathrooms = property.bathrooms;
-  const description =
-    property.description || "Contact the property owner for more details.";
-  const seoTitle = `${title} for Rent in ${location}`;
+  
+const description =
+  property.description || "Contact the property owner for more details.";
 
-const seoDescription =
+const money = (amount) =>
+  amount !== undefined && amount !== null && amount !== ""
+    ? `₹${Number(amount).toLocaleString("en-IN")}`
+    : "Not specified";
+
+const seoTitle = `${title} for Rent in ${location}`;
+
+const seoDescription = (
   `${type} available for rent in ${location}. ` +
   `Monthly rent: ${money(rent)}. ` +
-  `${description}`.slice(0, 155);
+  `${description}`
+).slice(0, 155);
 
-  const money = (amount) =>
-    amount !== undefined && amount !== null && amount !== ""
-      ? `₹${Number(amount).toLocaleString("en-IN")}`
-      : "Not specified";
 
   return (
     <main className="min-h-screen bg-gray-50 px-4 py-8 sm:px-6 lg:px-8">
