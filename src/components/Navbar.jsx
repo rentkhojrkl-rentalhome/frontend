@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -156,6 +155,23 @@ function Navbar() {
               Admin
             </Link>
           )}
+
+          
+{user?.role === "super_admin" && (
+  <Link
+    to="/super-admin"
+    className={`rounded-full px-4 py-3 text-sm font-bold transition ${
+      pathname === "/super-admin"
+        ? "bg-violet-600 text-white"
+        : "text-violet-700 hover:bg-violet-50"
+    }`}
+  >
+    <ShieldCheck size={16} className="mr-1 inline" />
+    Super Admin
+  </Link>
+  
+)}
+  
         </nav>
 
         {/* Profile/Login + mobile three-dot menu */}
@@ -260,12 +276,29 @@ function Navbar() {
                 Contact
               </Link>
 
-              {user?.role === "admin" && (
-                <Link to="/admin" onClick={closeMenu} className={linkClass("/admin")}>
-                  <ShieldCheck size={18} />
-                  Admin Dashboard
-                </Link>
-              )}
+             {user?.role === "admin" && (
+             <Link
+    to="/admin"
+    className="rounded-full px-4 py-3 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50"
+  >
+    Admin
+  </Link>
+)}
+
+{user?.role === "super_admin" && (
+  <Link
+    to="/super-admin"
+    className={`rounded-full px-4 py-3 text-sm font-bold transition ${
+      pathname === "/super-admin"
+        ? "bg-violet-600 text-white"
+        : "text-violet-700 hover:bg-violet-50"
+    }`}
+  >
+    Super Admin
+  </Link>
+)}
+             
+
 
               {!loading && user && (
                 <Link to="/profile" onClick={closeMenu} className={linkClass("/profile")}>
