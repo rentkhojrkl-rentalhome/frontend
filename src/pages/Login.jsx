@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Home, LoaderCircle } from "lucide-react";
@@ -34,7 +33,17 @@ function Login() {
         password: form.password,
       });
 
-      navigate(user.role === "owner" ? "/post-property" : "/search");
+      if (user.role === "super_admin"){
+        navigate("/super-admin");
+      }
+      else if (user.role === "admin") {
+        navigate("/admin");
+
+      } else if (user.role === "owner") {
+        navigate("/post-property");
+      } else {
+        navigate("/search");
+      }
     } catch (err) {
       setError(
         err.response?.data?.detail ||
