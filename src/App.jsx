@@ -15,6 +15,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import SuperAdminDashboard from "./pages/SuperAdminDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -28,7 +30,23 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/post-property" element={<PostProperty />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route
+  path="/admin"
+  element={
+    <ProtectedRoute allowedRoles={["admin", "super_admin"]}>
+      <AdminDashboard />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/super-admin"
+  element={
+    <ProtectedRoute allowedRoles={["super_admin"]}>
+      <SuperAdminDashboard />
+    </ProtectedRoute>
+  }
+/>
           <Route path="/requirements" element={<Requirements />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
