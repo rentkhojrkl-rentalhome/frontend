@@ -1,0 +1,12 @@
+import { useCallback, useEffect, useState } from "react";
+import { Building2, KeyRound, Users, UserRound, RefreshCw } from "lucide-react";
+import { api } from "../../services/api";
+
+const Card = ({label, value, icon}) => <article className="rounded-2xl border border-white/10 bg-slate-900 p-5 shadow-xl"><div className="flex items-center justify-between text-slate-400"><span className="text-sm font-semibold">{label}</span>{icon}</div><p className="mt-4 text-3xl font-black text-white">{Number(value || 0).toLocaleString("en-IN")}</p></article>;
+export default function SuperAdminOverview() {
+  const [data, setData] = useState(null); const [error, setError] = useState(""); const [loading, setLoading] = useState(true);
+  const load = useCallback(async () => { setLoading(true); setError(""); try { setData((await api.get("/super-admin/overview")).data); } catch (e) { setError(e.response?.data?.detail || "Unable to load platform metrics."); } finally { setLoading(false); } }, []);
+  useEffect(() => { load(); }, [load]);
+  if (loading) return <p className="text-slate-400">Loading platform metrics…</p>;
+  return <><div className="mb-7 flex flex-wrap items-end justify-between gap-4"><div><p className="text-sm font-bold uppercase tracking-widest text-violet-300">Platform overview</p><h1 className="mt-2 text-3xl font-black text-white">Operations at a glance</h1><p className="mt-2 text-slate-400">Live counts exclude soft-deleted records.</p></div><button onClick={load} className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-3 text-sm font-bold hover:bg-white/10"><RefreshCw size={16}/>Refresh</button></div>{error && <p className="mb-5 rounded-xl border border-red-400/30 bg-red-950/40 p-4 text-red-200">{error}</p>}{data && <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"><Card label="Platform users" value={data.users?.total} icon={<Users size={20}/>}/><Card label="Property owners" value={data.users?.owners} icon={<UserRound size={20}/>}/><Card label="Live properties" value={data.properties?.approved} icon={<Building2 size={20}/>}/><Card label="Active rentals" value={data.rentals?.active} icon={<KeyRound size={20}/>}/><Card label="Pending review" value={data.properties?.pending}/><Card label="Rented properties" value={data.properties?.rented}/><Card label="Tenants" value={data.users?.tenants}/><Card label="Admins" value={data.users?.admins}/></div>}</>;
+}
