@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   Info,
   Mail,
+  Download,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
