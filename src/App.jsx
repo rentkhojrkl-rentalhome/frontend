@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
@@ -15,8 +15,12 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import SuperAdminDashboard from "./pages/SuperAdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import OwnerVerificationAdmin from "./pages/OwnerVerificationAdmin";
+import SuperAdminLayout from "./layouts/SuperAdminLayout";
+import SuperAdminOverview from "./pages/SuperAdmin/Overview";
+import SuperAdminManagement from "./pages/SuperAdmin/Management";
+import SuperAdminAdmins from "./pages/SuperAdmin/Admins";
 
 function App() {
   return (
@@ -39,11 +43,26 @@ function App() {
   }
 />
 
+          <Route path="/super-admin" element={<ProtectedRoute allowedRoles={["super_admin"]}><SuperAdminLayout /></ProtectedRoute>}>
+            <Route index element={<SuperAdminOverview />} />
+            <Route path="users" element={<SuperAdminManagement type="users" />} />
+            <Route path="owners" element={<SuperAdminManagement type="owners" />} />
+            <Route path="tenants" element={<SuperAdminManagement type="tenants" />} />
+            <Route path="admins" element={<SuperAdminAdmins />} />
+            <Route path="properties" element={<SuperAdminManagement type="properties" />} />
+            <Route path="rentals" element={<SuperAdminManagement type="rentals" />} />
+            <Route path="verifications" element={<OwnerVerificationAdmin />} />
+            <Route path="database" element={<SuperAdminManagement type="database" />} />
+            <Route path="backups" element={<SuperAdminManagement type="backups" />} />
+            <Route path="reports" element={<SuperAdminManagement type="reports" />} />
+            <Route path="activity" element={<SuperAdminManagement type="activity" />} />
+            <Route path="settings" element={<SuperAdminManagement type="settings" />} />
+          </Route>
 <Route
-  path="/super-admin"
+  path="/admin/owner-verifications"
   element={
-    <ProtectedRoute allowedRoles={["super_admin"]}>
-      <SuperAdminDashboard />
+    <ProtectedRoute allowedRoles={["admin", "super_admin"]}>
+      <OwnerVerificationAdmin />
     </ProtectedRoute>
   }
 />
@@ -62,3 +81,4 @@ function App() {
 }
 
 export default App;
+
