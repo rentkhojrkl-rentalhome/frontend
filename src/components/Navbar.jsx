@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -25,6 +26,8 @@ function Navbar() {
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  if (pathname.startsWith("/super-admin")) return null;
 
   const closeMenu = () => setMenuOpen(false);
 
