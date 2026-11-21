@@ -139,6 +139,13 @@ function Navbar() {
             Contact
           </Link>
 
+        <Link
+  to="/download"
+  className="rounded-full bg-lime-200 px-4 py-3 text-sm font-bold text-emerald-950 transition hover:bg-lime-300"
+>
+  Download App
+</Link>
+
           <Link
             to="/requirements"
             className={`rounded-full px-3 py-2.5 text-sm font-semibold transition ${
@@ -278,6 +285,14 @@ function Navbar() {
                 <Mail size={18} />
                 Contact
               </Link>
+              <Link
+  to="/download"
+  onClick={closeMenu}
+  className={linkClass("/download")}
+>
+  <Download size={18} />
+  Download Android App
+</Link>
 
              {user?.role === "admin" && (
              <Link
