@@ -21,6 +21,7 @@ import SuperAdminLayout from "./layouts/SuperAdminLayout";
 import SuperAdminOverview from "./pages/SuperAdmin/Overview";
 import SuperAdminManagement from "./pages/SuperAdmin/Management";
 import SuperAdminAdmins from "./pages/SuperAdmin/Admins";
+import DownloadApp from "./pages/DownloadApp";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/post-property" element={<PostProperty />} />
+          <Route path="/download" element={<DownloadApp />} />
           <Route
   path="/admin"
   element={
