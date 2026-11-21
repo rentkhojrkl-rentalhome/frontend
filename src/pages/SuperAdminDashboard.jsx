@@ -2,6 +2,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
+import { ShieldCheck } from "lucide-react";
 
 const permissionOptions = [
   ["properties.view", "View properties"],
@@ -11,6 +13,7 @@ const permissionOptions = [
   ["reports.view", "View reports"],
   ["activity.view", "View activity"],
   ["revenue.view", "View revenue"],
+  ["owners.verify", "Verify property owners"],
 ];
 
 const formatNumber = (value) =>
@@ -216,6 +219,13 @@ export default function SuperAdminDashboard() {
             Welcome, {user.name}. Manage platform access and operations.
           </p>
         </header>
+        <Link
+  to="/admin/owner-verifications"
+  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-bold text-white hover:bg-violet-700"
+>
+  <ShieldCheck size={17} />
+  Review owner verification
+</Link>
 
         <nav className="mb-8 flex flex-wrap gap-2">
           {tabs.map(([key, label]) => (
